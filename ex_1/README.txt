@@ -20,18 +20,18 @@ This project contains front and back applications, dockerfiles for each of them 
 - --- add task: .../add (default text for task only, no option for writing)
 - --- delete task: .../delete/<id>
 - --- get task by id: .../<id>
-- --- get all tasks: .../todo
+- --- get all tasks: ... (jast starting url, localhost::3000)
 - Application is running at 3000 port
 
 Project set up:
-docker-compose build .
+docker-compose build
 docker-compose up
 
 Test scenarios:
 Open browser with web-application (base url: localhost::3000). Add to base url:
-1) .../todo -> list with three todo-task cards should appear. (at first launching, before add/delete tests. After tests DB changes as docker-compose sets volume for it)
+1) base url -> list with three todo-task cards should appear. (at first launching, before add/delete tests. After tests DB changes as docker-compose sets volume for it)
 It is possible to get id of tasks for next tests here.
-2) .../todo/add -> new task will be generated automatically, message with its content and id will appear
+2) .../add -> new task will be generated automatically, message with its content and id will appear
 Every reloading of page at this url triggers generation of new task.
 3) .../delete/<id> ->
 if task with given in exists in server DB, the task will be deleted from DB and message about successful request will appear.
