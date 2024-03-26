@@ -15,8 +15,8 @@ This project contains front and back applications, dockerfiles for each of them 
 1. frontend: /front-tsx
 - This is typescript react application
 - It can render todo-tasks, got from server, as a list of cards.
-- For not "GET" requests the list of cards is exchanged with text message about request success.
-- Application has no UI for interaction with server. Instead, it has urls, which triggers requests to server:
+- For not "GET" requests the list of cards is replaced with text message about request success.
+- Application has no UI for interaction with server. Instead, it has urls that trigger requests to server:
 - --- add task: .../add (default text for task only, no option for writing)
 - --- delete task: .../delete/<id>
 - --- get task by id: .../<id>
