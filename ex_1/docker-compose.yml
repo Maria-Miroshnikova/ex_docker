@@ -1,0 +1,24 @@
+
+
+services:
+    backend:
+        #image: 436eecaeb2c1
+        #image: bff821f7d09e
+        build: ./learn_django
+        restart: always
+        ports:
+          - 8000:8000
+        volumes:
+          - learn_compose:/app
+
+    frontend:
+            #image: 785b79d49e1c
+            build: ./front-tsx
+            restart: always
+            ports:
+              - 3000:3000
+            depends_on:
+              - backend
+
+volumes:
+  learn_compose:

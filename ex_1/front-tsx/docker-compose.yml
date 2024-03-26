@@ -1,0 +1,21 @@
+
+
+services:
+    backend:
+        image: 436eecaeb2c1
+        restart: always
+        ports:
+          - 8000:8000
+        volumes:
+          - db_data:./db_data
+
+    frontend:
+            image: 785b79d49e1c
+            restart: always
+            ports:
+              - 3000:3000
+            depends_on:
+              - backend
+
+volumes:
+  db_data:
