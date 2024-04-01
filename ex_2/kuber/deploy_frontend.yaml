@@ -1,0 +1,32 @@
+# нужно каждый раз удалять и создавать заново, автообновления не будет
+
+apiVersion: apps/v1
+
+kind: Deployment
+metadata:
+  namespace: default
+  name: yaml-frontend-deploy
+  labels:
+    env: prod
+    app: main
+    tier: backend
+    owner: me
+    project: front-app
+spec:
+  selector:
+    matchLabels:
+      project: front-app
+  #описание подов с которыми работает деплой
+  template:
+    metadata:
+      namespace: default
+      labels:
+        project: front-app
+    spec:
+      containers:
+        - name: container-frontend
+          image: frontend-final
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8000
+

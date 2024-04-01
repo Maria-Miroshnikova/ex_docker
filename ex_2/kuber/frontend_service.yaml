@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: todoui
+  namespace: default
+  labels:
+    env: prod
+    owner: me
+spec:
+  selector:
+    project: front-app # сервиc будет искать ЭТИ поды! СМ. создание подов в deploy, template
+  #externalIPs:
+  #  - 127.0.0.1
+  ports:
+    - name: app-listener
+      protocol: TCP
+      port: 4000  # on load balancer
+      targetPort: 3000 # on POD
+  type: LoadBalancer
